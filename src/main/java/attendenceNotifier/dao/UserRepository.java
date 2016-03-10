@@ -7,5 +7,5 @@ import attendenceNotifier.model.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User,Integer> {
-
+	User findByNameAndPassword(String name, String pass);
 }
