@@ -58,7 +58,7 @@ public class Application extends SpringBootServletInitializer {
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-		sessionFactory.setDataSource(dataSourceJubileeWebApp());
+		sessionFactory.setDataSource(dataSource());
 		sessionFactory.setPackagesToScan(new String[] { "attendenceNotifier.*" });
 		return sessionFactory;
 	}
@@ -72,7 +72,7 @@ public class Application extends SpringBootServletInitializer {
     }
 
 	@Bean(destroyMethod = "close")
-	public DataSource dataSourceJubileeWebApp() {
+	public DataSource dataSource() {
 		BoneCPDataSource dataSource = new BoneCPDataSource();
 		dataSource.setDriverClass(driverClass);
 		dataSource.setJdbcUrl(jdbcUrl);

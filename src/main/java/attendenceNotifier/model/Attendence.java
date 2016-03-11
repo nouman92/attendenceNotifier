@@ -23,6 +23,16 @@ public class Attendence implements Serializable {
 	private String timeOut;
 	private ClassObj clas;
 	private Student student;
+	private boolean attendance;
+	public boolean isAttendance() {
+		return attendance;
+	}
+
+
+	public void setAttendance(boolean attendance) {
+		this.attendance = attendance;
+	}
+
 
 	public Attendence() {
 	}
