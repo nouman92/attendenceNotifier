@@ -72,7 +72,7 @@ public class DataController {
 	@RequestMapping(value="/StatsToday",method = RequestMethod.POST)
 	public String getStats(String date,String sessionId){
 		JSONArray array = new JSONArray();
-		if(sessionId.equals("secretKey")){
+		if(sessionId != null &&  sessionId.equals("secretKey")){
 			List<ClassObj> classes = classRepository.findAll();
 			for(ClassObj obj :classes ){
 				int total = attendenceRepo.findTotal(obj.getId(),date);
@@ -100,7 +100,7 @@ public class DataController {
 	@RequestMapping(value="/ClassAndStudentData",method = RequestMethod.POST)
 	public String classStudentsData(String sessionId){
 		JSONArray array = new JSONArray();
-		if(sessionId.equals("secretKey")){
+		if(sessionId != null && sessionId.equals("secretKey")){
 			List<ClassObj> classes = classRepository.findAll();
 			for(ClassObj obj :classes ){
 				JSONArray studentsArray = new JSONArray();

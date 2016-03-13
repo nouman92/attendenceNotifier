@@ -25,6 +25,9 @@ public interface AttendenceRepository extends CrudRepository<Attendence,Integer>
 	@Query( value = "SELECT * FROM attendance_system.attendance where class_id = ?  and date = ? and student_id = ? " , nativeQuery = true )
 	Attendence findByClasAndDateAndStudent(String classId,String date,String Student);
 	
+	@Query( value = "SELECT * FROM attendance_system.attendance where class_id = ?  and date >= ? and date <= ? " , nativeQuery = true )
+	List<Attendence> findByClasAndBetweenDates(String classId,String startDate,String endDate);
+	
 	@Query( value = "SELECT count(id) FROM attendance_system.attendance where attendence = ? and class_id = ?  and date = ? " , nativeQuery = true )
 	int getAttendenceCount(boolean atendence,int classId,String date);
 }				
